@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "68332ded51435e8cd87a3a1311a008d7",
+    "content-hash": "b67999e352e3cf818210eead7d127814",
     "packages": [
         {
             "name": "cakephp/chronos",
@@ -1152,16 +1152,22 @@
         },
         {
             "name": "laravel/nova",
-            "version": "dev-master",
+            "version": "v2.0.11",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:laravel/nova.git",
+                "reference": "055b382736bf2726754e8dcd674b4a0101ab6ac9"
+            },
             "dist": {
-                "type": "path",
-                "url": "../nova",
-                "reference": "b3dba5c742507977c346ecf74e2924fc918b7c07"
+                "type": "zip",
+                "url": "https://nova.laravel.com/dist/laravel/nova/laravel-nova-055b382736bf2726754e8dcd674b4a0101ab6ac9-zip-bcb2d5.zip",
+                "reference": "055b382736bf2726754e8dcd674b4a0101ab6ac9",
+                "shasum": "a0dde4bca15de2b3f06aa62043728ce485283a4d"
             },
             "require": {
                 "cakephp/chronos": "^1.0",
                 "doctrine/dbal": "^2.9",
-                "illuminate/support": "^5.7.15 | 5.8.*",
+                "illuminate/support": "^5.7.15 | 5.8.* | ^6.0",
                 "moontoast/math": "^1.1",
                 "php": ">=7.1.0",
                 "spatie/once": "^1.1",
@@ -1211,7 +1217,8 @@
             "keywords": [
                 "admin",
                 "laravel"
-            ]
+            ],
+            "time": "2019-08-13T17:17:17+00:00"
         },
         {
             "name": "laravel/tinker",
@@ -2157,9 +2164,9 @@
             "authors": [
                 {
                     "name": "Freek Van der Herten",
+                    "role": "Developer",
                     "email": "freek@spatie.be",
-                    "homepage": "https://spatie.be",
-                    "role": "Developer"
+                    "homepage": "https://spatie.be"
                 }
             ],
             "description": "A magic memoization function",

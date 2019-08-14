@@ -18,6 +18,7 @@ before_script:
   - cp .env.travis .env
   - mysql -e 'create database travis_test;'
   - composer self-update
+  - composer config http-basic.nova.laravel.com ${NOVA_USERNAME} ${NOVA_PASSWORD}
   - composer install --no-interaction
   - php artisan key:generate
   - php artisan migrate
