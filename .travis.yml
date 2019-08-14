@@ -8,14 +8,14 @@ php:
 
 before_script:
   - cp .env.travis .env
-    - mysql -e 'create database travis_test;'
+  - mysql -e 'create database travis_test;'
   - composer self-update
   - composer install --no-interaction
   - php artisan key:generate
   - php artisan migrate
   #	- npm install npm@latest -g
   #	- npm install -g jshint
-  - npm install
+  # - npm install
 
 script:
   - vendor/bin/phpunit --coverage-text
