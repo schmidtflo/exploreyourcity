@@ -1,19 +1,6 @@
 <?php
 
-use Laravel\Nova\NovaCoreServiceProvider;
-
-$nova = [];
-/*
-     * Use Nova not on CI
-     */
-
-
-if(env('APP_ENV') !== 'testing') {
-	$nova['providers'][] = NovaCoreServiceProvider::class;
-	$nova['aliases']['Nova'] = Laravel\Nova\Nova::class;
-}
-
-$config = [
+return [
 
     /*
     |--------------------------------------------------------------------------
@@ -191,7 +178,6 @@ $config = [
 
     ],
 
-
     /*
     |--------------------------------------------------------------------------
     | Class Aliases
@@ -244,5 +230,3 @@ $config = [
     ],
 
 ];
-//dd(array_merge_recursive($config, $nova));
-return array_merge_recursive($config, $nova);

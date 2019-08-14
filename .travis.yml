@@ -16,7 +16,6 @@ cache:
 
 before_script:
   - cp .env.travis .env
-  - sed -i '/"laravel\/nova":/d' composer.json
   - mysql -e 'create database travis_test;'
   - composer self-update
   - composer install --no-interaction

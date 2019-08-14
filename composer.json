@@ -40,9 +40,7 @@
     },
     "extra": {
         "laravel": {
-            "dont-discover": [
-				"laravel/nova"
-            ]
+            "dont-discover": []
         }
     },
     "autoload": {
