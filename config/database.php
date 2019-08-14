@@ -91,6 +91,19 @@ return [
             'prefix_indexes' => true,
         ],
 
+	    'travis' => [
+		    'driver'    => 'mysql',
+		    'host'      => env('DB_TEST_HOST', 'localhost'),
+		    'database'  => env('DB_TEST_DATABASE', 'travis_test'),
+		    'username'  => env('DB_TEST_USERNAME', 'travis'),
+		    'password'  => env('DB_TEST_PASSWORD', 'secret'),
+		    'charset'   => 'utf8',
+		    'collation' => 'utf8_unicode_ci',
+		    'prefix'    => '',
+		    'strict'    => false,
+	    ],
+
+
     ],
 
     /*
