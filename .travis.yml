@@ -13,7 +13,7 @@ addons:
   sonarcloud:
     organization: "schmidtflo"
     token:
-      secure: "JljRFYigUO2xCgPmiaVjLY/HtEUP26OlnRNbIfNSpaGe9aznaaJdgpVlQnP+k2zRlb8VHmJr1ERiO4HwKz+UFgd4KKR7R5q+AnFGSnufX/CCkbWuQC9cLQRb3HdRDG8cMy3k6g+dVZgqxval9UCx1A0OnQY0j/iY5gxSSNZPuPVtvSqXPDgPxygwqyqDGtZkhsioEgb5JBI4Z+TKLmY8+CsTA7fCq1HGHJu0mIx38V/X3DZ98pmnBG9zVtYCtFFjzorBTUlGFY9N7TFsq0eoKDY2owXzH/aBARO7YfvRAyY3DGzbx3J8u18r3vm53NQGahsIPCRxbVAfxjHX6jaqbZDwYilXHjYrgG/RdxYJxosxfbf0cEGGOsPQmNz3wIPM/FPCUsegUyOkJTeFu0MEpqpVwZtDkBXmaa/XJfU58DNqRBhbq4ODq8zgy4dS55vbLK4/f2Y4BcksQ3COTJth4tAbx72zXUftEdqWjYQPqFuFVwW6OCDYMrgRsLQkILru1mFMn5tXAxgk/RAHSjwc8WPVQRjyvPA8a8JctctWbSAwHVxz40sHCmwbELAxTxylIzLIvK4y3/cOoh3RSb5kKaJwFUsddKxemKxjSpOWO3WheTwznbS+9mXbJvX5hbXyQabnxqyZvC7t7grQcZuca0rEdPFUYgT6o3WqUZnsjlI="
+      secure: ${SONAR_TOKEN}
 
 
 cache:
@@ -37,9 +37,7 @@ jobs:
   include:
     - stage: test
       script:
-        - vendor/bin/phpunit --coverage-text
-    - stage: code-quality
-      script:
+        - vendor/bin/phpunit --coverage-clover=coverage-report.clover --log-junit=test-report.xml
         - sonar-scanner
 
 #	- phpcs --ignore=app/Http/Controllers/Auth,app/Http/Controllers/Controller.php app/Http/Controllers
