@@ -19,7 +19,7 @@ class UsersTableSeeder extends Seeder
 		\DB::table('users')->insert(array(
 			0 =>
 				array(
-					'id' => '1',
+					'id' => 'f292e1b0-c05e-11e9-9277-7f17d8064aa4',
 					'name' => 'Admin',
 					'email' => 'admin@exploreyour.city',
 					'email_verified_at' => NULL,

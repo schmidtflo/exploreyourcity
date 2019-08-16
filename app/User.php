@@ -2,13 +2,14 @@
 
 namespace App;
 
+use App\Traits\Uuids;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    use Notifiable;
+    use Notifiable, Uuids;
 
     /**
      * The attributes that are mass assignable.
@@ -37,4 +38,18 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
 	    'is_admin' => 'boolean'
     ];
+
+	/**
+	 * Indicates if the IDs are auto-incrementing.
+	 *
+	 * @var bool
+	 */
+	public $incrementing = false;
+
+	/**
+	 * The "type" of the primary key ID.
+	 *
+	 * @var string
+	 */
+	protected $keyType = 'string';
 }

@@ -1,6 +1,4 @@
-[![codecov](https://codecov.io/gh/schmidtflo/exploreyourcity/branch/master/graph/badge.svg)](https://codecov.io/gh/schmidtflo/exploreyourcity)
-
-[![Build Status](https://travis-ci.org/schmidtflo/exploreyourcity.svg?branch=master)](https://travis-ci.org/schmidtflo/exploreyourcity)
+[![Build Status](https://travis-ci.org/schmidtflo/exploreyourcity.svg?branch=master)](https://travis-ci.org/schmidtflo/exploreyourcity) [![codecov](https://codecov.io/gh/schmidtflo/exploreyourcity/branch/master/graph/badge.svg)](https://codecov.io/gh/schmidtflo/exploreyourcity)
 
 This is the code for exploreyour.city.
 
