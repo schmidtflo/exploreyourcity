@@ -39,8 +39,9 @@ jobs:
       script:
         - vendor/bin/phpunit --coverage-clover=coverage-report.clover --log-junit=test-report.xml
         - sonar-scanner
-        - codecov
 
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
 #	- phpcs --ignore=app/Http/Controllers/Auth,app/Http/Controllers/Controller.php app/Http/Controllers
 #	- npm run production
 #	- jshint resources/assets/js/modules/*
