@@ -29,6 +29,7 @@ before_script:
   - composer install --no-interaction
   - php artisan key:generate
   - php artisan migrate
+  - php artisan ziggy:generate "resources/js/routes.js"
   #	- npm install npm@latest -g
   #	- npm install -g jshint
   - yarn install

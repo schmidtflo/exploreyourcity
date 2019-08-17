@@ -5,6 +5,8 @@
  */
 
 require('./bootstrap');
+import { Ziggy } from './routes';
+import route from '../../vendor/tightenco/ziggy/src/js/route'
 
 // window.Vue = require('vue');
 
@@ -30,7 +32,13 @@ require('./bootstrap');
 import { InertiaApp } from '@inertiajs/inertia-vue'
 import Vue from 'vue'
 
-Vue.use(InertiaApp)
+Vue.use(InertiaApp);
+Vue.mixin({
+	methods: {
+		route: ( name, params, absolute ) => route(name, params, absolute, Ziggy)
+	}
+});
+
 
 const app = document.getElementById('app')
 
