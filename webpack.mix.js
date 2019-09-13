@@ -2,6 +2,21 @@ const mix = require('laravel-mix');
 const path = require('path');
 const tailwindcss = require('tailwindcss');
 
+const purgecss = require('@fullhuman/postcss-purgecss')({
+
+	// Specify the paths to all of the template files in your project
+	content: [
+		'./resources/js/**/*.js',
+		'./resources/js/**/*.vue',
+		// './resources/views/**/*.blade.php',
+		// etc.
+	],
+
+	// Include any special characters you're using in this regular expression
+	defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || []
+})
+
+
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management
@@ -19,7 +34,11 @@ mix.js('resources/js/app.js', 'public/js')
 	    require('tailwindcss'),
 	    require('postcss-nested'),
 	    require('postcss-custom-properties'),
+	    require('postcss-custom-properties'),
 	    require('autoprefixer'),
+	    ...process.env.NODE_ENV === 'production'
+		    ? [purgecss]
+		    : []
     ])
 	.options({
 		processCssUrls: false,

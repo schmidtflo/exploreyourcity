@@ -8,11 +8,18 @@
 				<span v-text="station.name"></span>
 			</li>
 		</ul>
+
+		<ul>
+			<li v-for="(key, value) in count">
+				<span>Key: {{ key }}, Value: {{ value }}</span>
+			</li>
+		</ul>
 	</layout>
 </template>
 
 <script>
 	import Layout from '@/Shared/Layout'
+	import countBy from 'lodash/countBy'
 
 	export default {
 		name: "Stations",
@@ -22,8 +29,16 @@
 		},
 
 		props: {
-			'stations': {
+			stations: {
 				default: () => []
+			}
+		},
+
+		computed: {
+			count() {
+				let count = countBy(this.stations, 'length');
+				console.log(count);
+				return count;
 			}
 		}
 	}
