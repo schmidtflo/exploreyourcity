@@ -16,6 +16,7 @@ class CreateLineStationTable extends Migration
         Schema::create('line_station', function (Blueprint $table) {
             $table->integer('line_id');
             $table->integer('station_id');
+            $table->integer('position');
         });
     }
 

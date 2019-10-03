@@ -7,6 +7,7 @@ use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Timothyasp\Color\Color;
@@ -48,12 +49,18 @@ class Line extends Resource
         return [
             ID::make()->sortable(),
 
-            Text::make('Name'),
+            Text::make('Name')->sortable(),
             Color::make('Color')->hideFromIndex(),
 
             BelongsTo::make('City'),
             BelongsTo::make('LineType'),
-            BelongsToMany::make('Stations'),
+            BelongsToMany::make('Stations')
+	            ->searchable()
+	            ->fields(function () {
+	                return [
+		                Number::make('position'),
+	                ];
+                }),
 
         ];
     }

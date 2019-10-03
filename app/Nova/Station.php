@@ -7,6 +7,7 @@ use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
@@ -58,7 +59,13 @@ class Station extends Resource
                 ->longitude('longitude'),
 
             BelongsTo::make('City'),
-            BelongsToMany::make('Lines'),
+            BelongsToMany::make('Lines')
+	            ->searchable()
+	            ->fields(function () {
+		            return [
+			            Number::make('position'),
+		            ];
+	            }),
         ];
     }
 

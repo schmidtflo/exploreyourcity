@@ -12,12 +12,12 @@ class LineTypesTableSeeder extends Seeder
      */
     public function run()
     {
-        
+
 
         \DB::table('line_types')->delete();
-        
+
         \DB::table('line_types')->insert(array (
-            0 => 
+            0 =>
             array (
                 'id' => '1',
                 'city_id' => '1',
@@ -27,7 +27,7 @@ class LineTypesTableSeeder extends Seeder
                 'created_at' => '2019-07-30 12:42:03',
                 'updated_at' => '2019-07-30 12:42:03',
             ),
-            1 => 
+            1 =>
             array (
                 'id' => '2',
                 'city_id' => '1',
@@ -38,7 +38,7 @@ class LineTypesTableSeeder extends Seeder
                 'updated_at' => '2019-07-30 12:45:51',
             ),
         ));
-        
-        
+
+
     }
 }
