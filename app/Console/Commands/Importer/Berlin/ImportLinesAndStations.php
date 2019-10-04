@@ -45,10 +45,6 @@ class ImportLinesAndStations extends Command
     public function __construct()
     {
         parent::__construct();
-
-        $this->city = City::where('name', 'Berlin')->first();
-        $this->ubahn = LineType::where('name', 'U-Bahn')->where('city_id', $this->city->id)->first();
-        $this->sbahn = LineType::where('name', 'S-Bahn')->where('city_id', $this->city->id)->first();
     }
 
     /**
@@ -58,6 +54,10 @@ class ImportLinesAndStations extends Command
      */
     public function handle()
     {
+	    $this->city = City::where('name', 'Berlin')->first();
+	    $this->ubahn = LineType::where('name', 'U-Bahn')->where('city_id', $this->city->id)->first();
+	    $this->sbahn = LineType::where('name', 'S-Bahn')->where('city_id', $this->city->id)->first();
+
         $lines = json_decode(Storage::get('cities/berlin/lines.json'));
         $stations = json_decode(Storage::get('cities/berlin/stations_full.json'));
 
