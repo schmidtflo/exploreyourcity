@@ -27,6 +27,7 @@ class ImportLinesAndStations extends Command
 
     private $allowedLineTypes = ['subway', 'suburban'];
     private $allowedOperators = [1, 796];
+    private $colors;
 
     private $stationMapping = [];
     private $indexedStations = [];
@@ -60,6 +61,7 @@ class ImportLinesAndStations extends Command
 
         $lines = json_decode(Storage::get('cities/berlin/lines.json'));
         $stations = json_decode(Storage::get('cities/berlin/stations_full.json'));
+        $this->colors = json_decode(Storage::get('cities/berlin/colors.json'));
 
 		$this->createStationMapping($stations);
 
@@ -146,11 +148,14 @@ class ImportLinesAndStations extends Command
 	{
 		foreach($this->linesToImport as $line) {
 			// First, create Line
+			$product = $line['line']->product;
+			$name = $line['line']->name;
 			$lineModel = Line::create([
-				'name' => $line['line']->name,
-				'line_type_id' => ($line['line']->product == 'suburban') ? $this->sbahn->id : $this->ubahn->id,
+				'name' => $name,
+				'line_type_id' => ($product == 'suburban') ? $this->sbahn->id : $this->ubahn->id,
 				'city_id' => $this->city->id,
-				'color' => '#f00'
+				'color_background' => $this->colors->$product->$name->bg,
+				'color_foreground' => $this->colors->$product->$name->fg
 			]);
 			$index = 10;
 

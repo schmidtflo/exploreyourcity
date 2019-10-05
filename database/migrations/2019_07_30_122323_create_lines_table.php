@@ -18,7 +18,8 @@ class CreateLinesTable extends Migration
             $table->integer('city_id');
             $table->integer('line_type_id');
             $table->string('name');
-            $table->string('color');
+            $table->string('color_background');
+            $table->string('color_foreground');
             $table->timestamps();
         });
     }

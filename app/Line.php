@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Line extends Model
 {
-	protected $fillable = ['name', 'city_id', 'line_type_id', 'color'];
+	protected $fillable = ['name', 'city_id', 'line_type_id', 'color_background', 'color_foreground'];
 
 
 	public function city() {

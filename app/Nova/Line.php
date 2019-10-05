@@ -50,7 +50,8 @@ class Line extends Resource
             ID::make()->sortable(),
 
             Text::make('Name')->sortable(),
-            Color::make('Color')->hideFromIndex(),
+            Color::make('Backgroundcolor', 'color_background'),
+            Color::make('Foregroundcolor', 'color_foreground')->hideFromIndex(),
 
             BelongsTo::make('City'),
             BelongsTo::make('LineType'),
