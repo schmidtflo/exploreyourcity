@@ -8,7 +8,7 @@
     ],
     "license": "MIT",
     "require": {
-        "php": "^7.2",
+        "php": "^7.4",
         "davidpiesse/nova-map": "^0.0.5",
         "facade/ignition": "^1.6",
         "fideloper/proxy": "^4.0",
